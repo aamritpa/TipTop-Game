@@ -4,9 +4,9 @@ more = function() {
     var rectangle = [];
     var circle = [];
     var i=0
-    var n=20
+    var n=5
    for (i=0;i<n;i++){
-        rectangle[i] = paper.rect(700, 1000, 250, 250)
+        rectangle[i] = paper.rect(2000, 2000, 2500/n, 2500/n)
         if(i%2==0)
         {
           var x_axis= Math.floor((Math.random() * 1000) + 500);
