@@ -1,62 +1,65 @@
 more = function() {
-    paper = Raphael('container',1000,1000) 
-    var i;
-    for (i =1;i<=5;i++)
-    {
-        if (i==1){
-            rect = paper.rect(250, 250, 50, 80)
-        slide = {
-           // 'transform': 't2000,2000'
-            'transform': 't2000,1000r450t-100,0'
+    paper = Raphael('container',5000,5000) 
+    var size=10
+    var rectangle = [];
+    var circle = [];
+    var i=0
+    var n=20
+   for (i=0;i<n;i++){
+        rectangle[i] = paper.rect(700, 1000, 250, 250)
+        if(i%2==0)
+        {
+          var x_axis= Math.floor((Math.random() * 1000) + 500);
+          var y_axis= Math.floor((Math.random() * 1000) + 500);
+          translate = 1.5*i
+          attribs = {
+            x: x_axis,
+            y: y_axis,
+            transform: 'r'+360
         }
-        rect.animate(slide, 50000)
-        }
-        if (i==2){
-            rect1 = paper.rect(250, 250, 50, 80)
-        slide = {
-           // 'transform': 't2000,2000'
-            'transform': 't2000,1000r450t-100,0'
-        }
-        rect1.animate(slide, 50000)
+          rectangle[i].animate(attribs, 20000)
         }
 
-        
-    
-          /*
-        recolour = function() {
-            blush = {
-                'fill': '#f99'
-            }
-            rect1.animate(blush, 1000)
+        if(i%2==1)
+        {
+          var x_axis= -Math.floor((Math.random() * 1000) + 500);
+          var y_axis= Math.floor((Math.random() * 1000) + 500);
+          translate = 1.5*i
+          attribs = {
+            x: x_axis,
+            y: y_axis,
+            transform: 'r'+360
         }
-        */
-    }
-  
-    
+          rectangle[i].animate(attribs, 20000)
+        }
+ }
 }
+  
 setup = function() {
     more()
 }
 $(document).ready(setup)
 
 
+///Circle Implementation
+
 /*
-grow = function() {
-    bigger = {
-      'transform': 's2'
-    }
-    c.animate(bigger, 1000, 'linear', shrink)
-  }
-  shrink = function() {
-    smaller = {
-      'transform': 's1'
-    }
-    c.animate(smaller, 1000, 'linear', grow)
-  }
-setup = function() {
-    paper = Raphael('container', 200, 200)
-    c = paper.circle(100, 100, 40)
-    grow()
-  }
-$(document).ready(setup)
-*/
+    for (i=0;i<10;i++){
+        circle[i] = paper.circle(700, 200, 60, 60)
+        if(i%2==0)
+        {
+          slide = {
+            'transform': 't-2000,100r1000t-100,t200'
+          }
+          circle[i].animate(slide, 5000*i)
+        }
+
+        if(i%2==1)
+        {
+          slide = {
+              'transform': 't2000,100r1000t-100,t200'
+          }
+          circle[i].animate(slide, 5000*i)
+        }
+      }
+      */
