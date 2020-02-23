@@ -55,7 +55,7 @@ make= function(){
     var category=2
     var i
     var shape = [];
-    for (i=0;i<10;i++){
+    for (i=0;i<50;i++){
 
       if(category==1){
         shape[i]=paper.rect(400, 400, 60, 60)
@@ -71,19 +71,19 @@ make= function(){
     //  if(category==4){}
     
 
-    x = Math.floor(Math.random() * 800)-400 ;
-    y = Math.floor(Math.random() * 800)-400 ;
+    x = Math.floor(Math.random() * 700)-300 ;
+    y = Math.floor(Math.random() * 700)-300 ;
 
     shape_attr = {
    'transform': 't' + x + ',' + y,
    'fill': '#f00',
     }
-    shape[i].animate(shape_attr,1000)
-
+    shape[i].animate(shape_attr,10000)
+    }
 }
 
-}
 setup = function() {
-  make()
+  $('button').click(make)
 }
 $(document).ready(setup)
+
