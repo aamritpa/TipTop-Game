@@ -50,19 +50,19 @@ $(document).ready(setup)
 */
 
 make= function(){
-    paper = Raphael('container',1000,1000)
+    
     p= paper.path('M100,100 L100,800 M100,800 L800,800 M800,800 L800,100 M800,100 L100,100 Z')
-    var category=2
+    var category= $('#option').val()
     var i
     var shape = [];
     for (i=0;i<50;i++){
 
-      if(category==1){
+      if(category=='a'){
         shape[i]=paper.rect(400, 400, 60, 60)
       }
 
 
-      if(category==2){
+      if(category=='b'){
         shape[i]=paper.circle(400, 400, 60, 60)
       }
 
@@ -78,11 +78,18 @@ make= function(){
    'transform': 't' + x + ',' + y,
    'fill': '#f00',
     }
-    shape[i].animate(shape_attr,10000)
+    shape[i].animate(shape_attr,setTimeout)
     }
+    setTimeout(function(){
+      SVG.find("circle").remove();
+      SVG.find("rect").remove();
+      SVG.find("path").remove();
+    }, 2000);
 }
 
+
 setup = function() {
+  paper = Raphael('container',1000,1000)
   $('button').click(make)
 }
 $(document).ready(setup)
