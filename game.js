@@ -1,60 +1,12 @@
-/*
-more = function() {
-    paper = Raphael('container',5000,5000) 
-    var size=10
-    var rectangle = [];
-    var circle = [];
-    var i=0
-    var n=10
-    var category
-   for (i=0;i<n;i++){
-        rectangle[i] = paper.rect(200, 200, 2500/n, 2500/n)
-        if(i%2==0)
-        {
-          var x_axis= Math.floor((Math.random() * 1000) + 500);
-          var y_axis= Math.floor((Math.random() * 1000) + 500);
-          translate = 1.5*i
-          attribs = {
-            x: x_axis,
-            y: y_axis,
-            transform: 'r'+360,
-            AnimationTimeline:10
-          }
-          rectangle[i].animate(attribs, 20000)
-        }
-
-        if(i%2==1)
-        {
-          var x_axis= -Math.floor((Math.random() * 1000) + 500);
-          var y_axis= Math.floor((Math.random() * 1000) + 500);
-          hue=i*20
-          newcolour = 'hsl(' + hue + ', 100%, 50%)'
-          translate = 1.5*i
-          attribs = {
-            x: x_axis,
-            y: y_axis,
-            transform: 'r'+360,
-            AnimationTimeline:10
-        }
-          rectangle[i].animate(attribs, 20000)
-          
-        }
- }
-
-}
- */ /*
-setup = function() {
-    more()
-}
-$(document).ready(setup)
-*/
-
 make= function(){
     
     var category= $('#option').val()
     var i
     var shape = [];
-    for (i=0;i<50;i++){
+    var totalnumber=5
+    var count=0
+    var miss=0
+    for (i=0;i<totalnumber;i++){
 
       if(category=='a'){
         shape[i]=paper.rect(400, 400, 100, 100)
@@ -65,9 +17,11 @@ make= function(){
         shape[i]=paper.circle(400, 400, 60, 60)
       }
 
-    //  if(category==3){}
+      if(category=='c'){
+        shape[i]=paper.ellipse(400, 400, 80, 60)
+      }
 
-    //  if(category==4){}
+    
     
 
     x = Math.floor(Math.random() * 700)-300 ;
@@ -79,11 +33,21 @@ make= function(){
    'transform': 't' + x + ',' + y,
    'fill': '#f00',
     }
+
     callback= function () { 
+      miss=totalnumber-count
       this.hide() 
+      
     }
-    shape[i].animate(shape_attr, 3000, 'linear',callback);
+    zap= function(){
+      this.hide()
+      count=count+1
     }
+
+    shape[i].click(zap)
+    shape[i].animate(shape_attr,2000, 'linear',callback);
+    }
+
 }
 
 
