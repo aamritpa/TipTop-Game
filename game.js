@@ -32,12 +32,12 @@ make= function(){
 
     callback= function () { 
       this.hide()
-      return count;
+      document.getElementById("Misses").innerHTML = totalnumber-count;
     }
     zap= function(){
       this.hide()
       count=count+1
-
+      document.getElementById("score").innerHTML = count;
     }
     //Time function not implemented.
     time= function(){
@@ -47,7 +47,6 @@ make= function(){
     shape[i].click(zap)
     shape[i].animate(shape_attr,20000, 'linear',callback);
     } 
-    return count;
 }
 
 
