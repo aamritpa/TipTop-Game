@@ -1,53 +1,53 @@
 make= function(){
     
     var category= $('#option').val()
-    var i
+    var totalnumber= $('#quantity').val()
     var shape = [];
-    var totalnumber=5
     var count=0
-    var miss=0
+
+    var i
     for (i=0;i<totalnumber;i++){
 
       if(category=='a'){
-        shape[i]=paper.rect(400, 400, 100, 100)
+        shape[i]=paper.rect(400, 400, 1000/totalnumber, 1000/totalnumber)
       }
 
 
       if(category=='b'){
-        shape[i]=paper.circle(400, 400, 60, 60)
+        shape[i]=paper.circle(400, 400, 60/totalnumber, 60/totalnumber)
       }
 
       if(category=='c'){
-        shape[i]=paper.ellipse(400, 400, 80, 60)
+        shape[i]=paper.star(400, 400, 80, 60)
       }
 
-    
-    
+    x = Math.floor(Math.random() * 800)-300 ;
+    y = Math.floor(Math.random() * 800)-300 ;
 
-    x = Math.floor(Math.random() * 700)-300 ;
-    y = Math.floor(Math.random() * 700)-300 ;
-
-  
 
     shape_attr = {
-   'transform': 't' + x + ',' + y,
+   'transform': 't' + x + ',' + y+ 'r'+(x+y),
    'fill': '#f00',
     }
 
     callback= function () { 
-      miss=totalnumber-count
-      this.hide() 
-      
+      this.hide()
+      return count;
     }
     zap= function(){
       this.hide()
       count=count+1
+
+    }
+    //Time function not implemented.
+    time= function(){
+
     }
 
     shape[i].click(zap)
-    shape[i].animate(shape_attr,2000, 'linear',callback);
-    }
-
+    shape[i].animate(shape_attr,20000, 'linear',callback);
+    } 
+    return count;
 }
 
 
