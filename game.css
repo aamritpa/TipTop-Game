@@ -1,0 +1,19 @@
+body
+{
+    margin:  auto;
+    background-color: rgb(206, 105, 105);
+}
+#container{
+    background-color: rgb(14, 19, 43);
+}
+h1{
+    color: rgb(0, 0, 0);
+    background-color: rgb(206, 105, 105);
+    text-align: center;
+}
+.functions{
+    background-color: rgb(206, 105, 105);
+    text-align: center;
+    font-size: 25px;
+    font-weight: 100;
+}

@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<meta charset="UTF-8" />
-<title>Front Page</title>
-<script src="http://cmpt165.csil.sfu.ca/js/jquery-3.1.0.js"></script>
-<script src="http://cmpt165.csil.sfu.ca/js/raphael-2.1.4.js"></script>
-<script src="game.js"></script>
+    <meta charset="UTF-8" />
+    <title>Front Page</title>
+    <link rel="stylesheet" href="game.css">
+    <script src="http://cmpt165.csil.sfu.ca/js/jquery-3.1.0.js"></script>
+    <script src="http://cmpt165.csil.sfu.ca/js/raphael-2.1.4.js"></script>
+    <script src="game.js"></script>
 </head>
+
 <body>
+    
 <h1>TipTop Game</h1>
-<div id="container"></div>
+
+<div class='functions'>
 Select Figure: <select id="option">
     <option value="a">Rectangle</option>
     <option value="b">Circle</option>
     <option value="c">ellipse  </option>
     </select>
-<button id="draw">Play</button><br><br>
+    <button id="draw">Play</button><br><br>
+</div>
 
-<label for="quantity">Difficulty (between 5 and 20):</label>
-<input type="number" id="quantity" name="quantity" min="5" max="20"></input><br><br>
+<div class='functions'>
+    <label for="quantity">Difficulty:</label>
+    <input type="number" id="quantity" name="quantity" min="1" max="100"></input><br><br>
+</div>
 
-<div>Score:</div>
-<div id="score"></p></div>
-<div>Misses:</div>
-<div id="Misses"></p></div>
+<div class='functions'>
+    Score:<div id="score"></p></div>
+    Misses:<div id="Misses"></p></div>
+</div>
 
+<div id="container"></div>
 
 </body>
 </html>
