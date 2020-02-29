@@ -9,12 +9,12 @@ make= function(){
     for (i=0;i<totalnumber;i++){
 
       if(category=='a'){
-        shape[i]=paper.rect(800, 400, 100, 100)
+        shape[i]=paper.rect(1200, 400, 1000/totalnumber, 1000/totalnumber)
       }
 
 
       if(category=='b'){
-        shape[i]=paper.circle(0, 0, 1000/totalnumber, 1000/totalnumber)
+        shape[i]=paper.circle(1200, 400, 1000/totalnumber, 1000/totalnumber)
       }
 
       if(category=='c'){
@@ -40,12 +40,11 @@ make= function(){
       document.getElementById("score").innerHTML = count;
     }
     //Time function not implemented.
-    time= function(){
+   // time= function(){
 
-    }
-
+    //}
+    shape[i].animate(shape_attr,10000, 'linear',callback);
     shape[i].click(zap)
-    shape[i].animate(shape_attr,6000, 'linear',callback);
     } 
     //default the score and misses to 0
     document.getElementById("Misses").innerHTML = 0;
@@ -54,7 +53,7 @@ make= function(){
 
 
 setup = function() {
-  paper = Raphael('container',1600,1000)
+  paper = Raphael('container',2000,1000)
   $('button').click(make)
 }
 $(document).ready(setup)
