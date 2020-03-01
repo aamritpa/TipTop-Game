@@ -1,7 +1,8 @@
 body
 {
-    margin:  auto;
+    margin:  0 auto;
     background-color: rgb(206, 105, 105);
+    
 }
 #container{
     background-color: rgb(14, 19, 43);
