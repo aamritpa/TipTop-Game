@@ -5,8 +5,27 @@ make= function(){
     var shape = [];
     var count=0
 
-    var i
+//Creating a star
+    Raphael.fn.star = function(a, b, r) 
+    {
+      // start at the top point
+      var path = "M" + a + "," + (b-r);
+      
+      // let's draw this the way we might by hand, by connecting each point the one two-fifths of the way around the clock
+      for (var c = 0; c < 6; c += 1)
+      {
+          var angle = 270 + c * 144,
+              rx = a + r * Math.cos(angle * Math.PI / 180),
+              ry = b + r * Math.sin(angle * Math.PI / 180);
+          path +=  "L"+rx + "," + ry;
+      }    
+      return paper.path(path);
+      }
+
+    var i=0
     for (i=0;i<totalnumber;i++){
+      x = Math.floor(Math.random() * 900)-400 ;
+      y = Math.floor(Math.random() * 900)-400 ;  
 
       if(category=='a'){
         shape[i]=paper.rect(1200, 400, 1000/totalnumber, 1000/totalnumber)
@@ -18,15 +37,9 @@ make= function(){
       }
 
       if(category=='c'){
-        //shape[i]=paper.ngon(50, 60, 100, 6);
-        var raw_poly = "47.013,30.086 0.087,45.24 49.609,26.648 50.346,17.421 63.277,21.084 110.657,0.228";
-        shape[i] = paper.polygon(50, 60, raw_poly);
+        shape[i]=paper.star(1200, 400, 1000/totalnumber);
       }
-
-    x = Math.floor(Math.random() * 900)-400 ;
-    y = Math.floor(Math.random() * 900)-400 ;
-
-
+        
     shape_attr = {
    'transform': 't' + x + ',' + y+ 'r'+(x+y),
    'fill': '#f19',
@@ -41,10 +54,6 @@ make= function(){
       count=count+1
       document.getElementById("score").innerHTML = count;
     }
-    //Time function not implemented.
-   // time= function(){
-
-    //}
     shape[i].animate(shape_attr,10000, 'linear',callback);
     shape[i].click(zap)
     } 
