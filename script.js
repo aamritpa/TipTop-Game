@@ -18,7 +18,9 @@ make= function(){
       }
 
       if(category=='c'){
-        shape[i]=ellipse.star(400, 400, 80, 60)
+        //shape[i]=paper.ngon(50, 60, 100, 6);
+        var raw_poly = "47.013,30.086 0.087,45.24 49.609,26.648 50.346,17.421 63.277,21.084 110.657,0.228";
+        shape[i] = paper.polygon(50, 60, raw_poly);
       }
 
     x = Math.floor(Math.random() * 900)-400 ;
