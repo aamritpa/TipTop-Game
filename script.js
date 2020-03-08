@@ -42,7 +42,7 @@ make= function(){
         
     shape_attr = {
    'transform': 't' + x + ',' + y+ 'r'+(x+y),
-   'fill': '#f19',
+   'fill': '#f'+Math.floor(Math.random() * 80),
     }
 
     callback= function () { 
